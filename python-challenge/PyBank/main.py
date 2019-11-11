@@ -1,53 +1,55 @@
-import os
-import csv
-from statistics import mean 
+import os, csv
+
+from statistics import mean
 
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-found = False
-total_months = 0
-total_revenue = 0
-avg_rev_change = 0
-rev = []
-greatest_inc = 0
-greatest_dec = 0
+total_months = []
+total_profit = []
+monthly_profit_change = []
+ 
+with open(csvpath,newline="", encoding="utf-8") as budget:
+    csvreader = csv.reader(budget,delimiter=",") 
+    header = next(csvreader) #skip header
 
-with open(csvpath, newline='') as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=',')
-    
-    #print(csvreader)
-    for row in csvreader:
+    for row in csvreader: 
+
+        # Append the total months and total profit to their corresponding lists
+        # Moves the data from the csv to the lists 
+        total_months.append(row[0])
+        total_profit.append(int(row[1]))
+
+    for i in range(len(total_profit)-1):
         
-        #The total number of months included in the dataset
-        row_count = sum(1 for row in csvreader)
-        print(row_count)
+        # Take the difference between two months and append to monthly profit change
+        monthly_profit_change.append(total_profit[i+1]-total_profit[i])
+        
+# Find max and min in the monthly profit change list
+max_increase_value = max(monthly_profit_change)
+max_decrease_value = min(monthly_profit_change)
 
-#The net total amount of "Profit/Losses" over the entire period
-        #csv_header = next(csvreader)
-        #rev_total = sum(float(row[1]) for row in csvreader)
-        #print(rev_total)
+# Find corresponding month using month list and index from max and min
+# Use the plus 1 at the end since month associated with change is the next month
+max_increase_month = monthly_profit_change.index(max(monthly_profit_change)) + 1
+max_decrease_month = monthly_profit_change.index(min(monthly_profit_change)) + 1 
 
-    def rev(simpleList):
-        print(f"The values within the list are...")
-        for value in simpleList:
-            print(value)
-        print("The length of this list is... " + str(len(simpleList)))
+# Print Statements in GitBash
 
-    print(rev)
-# The average of the changes in "Profit/Losses" over the entire period
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months: {len(total_months)}")
+print(f"Total: ${sum(total_profit)}")
+print(f"Average Profit/Loss: ${round(mean(total_profit),2)}")
+print(f"Average Profit/Loss Change Between Months: ${round(mean(monthly_profit_change),2)}")
+print(f"Greatest Increase in Profits: {total_months[max_increase_month]} ${(str(max_increase_value))}")
+print(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} ${(str(max_decrease_value))}")
 
-# The greatest increase in profits (date and amount) over the entire period
-
-# The greatest decrease in losses (date and amount) over the entire period
-
-# As an example, your analysis should look similar to the one below:
-
-#text
-# Financial Analysis
-# Total Months: 86
-# Total: $38382578
-# Average  Change: $-2315.12
-# Greatest Increase in Profits: Feb-2012 ($1926159)
-# Greatest Decrease in Profits: Sep-2013 ($-2196167)
-
-#In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+with open ("pybank_output.txt", "w") as output:
+    output.write("Financial Analysis\n")
+    output.write("----------------------------\n")
+    output.write(f"Total Months: {len(total_months)}\n")
+    output.write(f"Total: ${sum(total_profit)}\n")
+    output.write(f'Average Profit/Loss: ${round(mean(total_profit),2)}\n')
+    output.write(f"Average Profit/Loss Change Between Months: ${round(mean(monthly_profit_change),2)}\n")
+    output.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})\n")
+    output.write(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str(max_decrease_value))})\n")
