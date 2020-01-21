@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weather vs. Latitude</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- Navigation Bar -->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(1, 99, 145);">
+    <a class="navbar-brand" href="#" style="font-family:trebuchet MS; color: white;">Lattitude</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" 
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html" style="color: white;">Home <span
+                class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false" style="color: white; background-color: rgb(1, 99, 145);">Plots</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="1MaxTemp.html" style="color: rgb(1, 99, 145);">Max Temperature</a>
+                <a class="dropdown-item" href="2Humidity.html" style="color: rgb(1, 99, 145);">Humidity</a>
+                <a class="dropdown-item" href="3Cloudiness.html" style="color: rgb(1, 99, 145);">Cloudiness</a>
+                <a class="dropdown-item" href="4Wind.html" style="color: rgb(1, 99, 145);">Wind Speed</a>
+            </div>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="Comparison.html" style="color: white;">Comparison</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="data.html" style="color: white;">Data</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Body of Page -->
+  
+  <!-- Summary -->
+  <div  class="col align-self-center">
+    <img src="assets/globe.jpg" class="col align-self-center" alt="globe" style="max-width: 50rem;" >
+    <div class="card-body">
+      <h5 class="card-title">Summary</h5>
+      <p class="card-text">
+        Data analytics is a powerful process used to find patterns in large sets of data. 
+        In this instance, python Matplotlib was used to analyze data pulled from the OpenWeatherMap API.
+        The specific weather categories analyzed were temperature, cloudiness, wind speed, and humidity.
+        The data was graphed using matplotlib to visualize the patterns and correlations between weather and latitude.</p>
+    </div>
+  </div>
+
+  
+<!-- Visuals -->
+<!-- max temp -->
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="assets/Fig1.png" class="card-img" alt="1MaxTemp">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <a href="1MaxTemp.html"><h5 class="card-title">Maximum Temperature</h5> </a>
+          <p class="card-text">Take a look at how temperature varies with latitude.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- humidity -->
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="assets/Fig2.png" class="card-img" alt="2Humidity">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            <a href="2Humidity.html"><h5 class="card-title">Humidity</h5> </a>
+            <p class="card-text">Take a look at how humidity varies with latitude.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- cloudiness -->
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="assets/Fig3.png" class="card-img" alt="3Cloudiness">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            <a href="3Cloudiness.html"><h5 class="card-title">Cloudiness</h5> </a>
+            <p class="card-text">Take a look at how cloudiness varies with latitude.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- wind speed -->
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="assets/Fig4.png" class="card-img" alt="4Wind">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            <a href="4Wind.html"><h5 class="card-title">Wind Speed</h5> </a>
+            <p class="card-text">Take a look at how wind speed varies with latitude.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="page-footer">
+<p>Web Design Project 2020, University of Richmond Data Analytics Bootcamp</p>
+</footer>
+
+
+</html>
