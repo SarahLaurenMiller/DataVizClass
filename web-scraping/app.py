@@ -6,14 +6,14 @@ import os
 
 
 # Hidden authetication file
-import config 
+#import config 
 
 # Create an instance of Flask app
 app = Flask(__name__)
 
 #Use flask_pymongo to set up connection through mLab
-app.config["MONGO_URI"] = os.environ.get('authentication')
-mongo = PyMongo(app)
+#app.config["MONGO_URI"] = os.environ.get('authentication')
+#mongo = PyMongo(app)
 
 
 

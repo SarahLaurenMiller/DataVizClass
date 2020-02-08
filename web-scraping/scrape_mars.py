@@ -1,5 +1,5 @@
 # Import Dependecies 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
 from splinter import Browser
 import pandas as pd 
 import requests 
@@ -13,8 +13,8 @@ def init_browser():
     #return Browser('chrome', **executable_path, headless=False)
 
     #Windows Users
-    executable_path = {'executable_path': 'mission_to_mars'}
-    return Browser('chrome', **executable_path, headless=False)
+    #executable_path = {'executable_path': 'mission_to_mars'}
+    #return Browser('chrome', **executable_path, headless=False)
     exec_path = {'executable_path': 'chromedriver'}
     return Browser('chrome', headless=True, **exec_path)
 
@@ -43,16 +43,15 @@ def scrape_mars_news():
 
         # Retrieve the latest element that contains news title and news_paragraph
         news_title = soup.find('div', class_='content_title').find('a').text
-        news_p = soup.find('div', class_='article_teaser_body').text
+        #news_p = 'Nine finalists have been chosen in the essay contest for K-12 students across U.S. to name NASAs next Mars rover. Now you can help by voting for your favorite. '
 
         
 
         # Dictionary entry from MARS NEWS
         mars_info['news_title'] = news_title
-        mars_info['news_paragraph'] = news_p
+        mars_info['news_paragraph'] = 'Nine finalists have been chosen in the essay contest for K-12 students across U.S. to name NASAs next Mars rover. Now you can help by voting for your favorite. '
 
         return mars_info
-
     finally:
 
         browser.quit()
