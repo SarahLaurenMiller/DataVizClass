@@ -1,5 +1,5 @@
 function plotting(id) {
-  d3.json("data/samples.json").then((sampledata)=> {
+  d3.json("samples.json").then((sampledata)=> {
       console.log(sampledata)
 
       var wfreq = sampledata.metadata.map(d => d.wfreq)
@@ -95,7 +95,7 @@ function plotting(id) {
     });
 }  
 function pullData(id) {
-  d3.json("data/samples.json").then((data)=> {
+  d3.json("samples.json").then((data)=> {
       
       var metadata = data.metadata;
 
@@ -121,7 +121,7 @@ function optionChanged(id) {
 function init() {
   var dropdown = d3.select("#selDataset");
 
-  d3.json("data/samples.json").then((data)=> {
+  d3.json("samples.json").then((data)=> {
       console.log(data)
 
       data.names.forEach(function(name) {
